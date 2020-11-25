@@ -1,12 +1,14 @@
 <template>
   <div>
-    <Nuxt/>
+    login page
   </div>
 </template>
 
 <script>
 export default {
-  name: "auth"
+  name: "Login",
+  layout: 'auth',
+
 }
 </script>
 

@@ -6,6 +6,8 @@
 
 <script>
 export default {
+  middleware: 'auth',
+
   async asyncData({$axios}) {
     this.discoveredMovies = await $axios.$get('/discover/movie')
   }
