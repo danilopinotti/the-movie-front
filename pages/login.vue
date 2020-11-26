@@ -42,11 +42,12 @@ export default {
     async doLogin() {
       let requestToken = await this.$axios.get('/authentication/token/new?api_key=66cb77f48db76291e8f72ce5ebb0b72f');
       this.login.request_token = requestToken.request_token;
+
       try {
         let response = await this.$auth.loginWith('themoviedb', {data: this.login})
-        console.log(response)
+        this.$snotify.success('Login realizado com sucesso');
       } catch (err) {
-        console.log(err)
+        this.$snotify.error('Falha ao realizar login. Por favor, tente novamente mais tarde.');
       }
     },
   },

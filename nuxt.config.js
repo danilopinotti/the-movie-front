@@ -16,10 +16,16 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [],
+  css: [
+    '~/assets/css/snotify.css',
+  ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: [
+    {
+      src: './plugins/snotify',
+    }
+  ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -51,15 +57,24 @@ export default {
     strategies: {
       themoviedb: {
         _scheme: '~/schemes/theMovieDb',
+        apiKey: '...',
         endpoints: {
+          requestToken: {
+            url: '/authentication/token/new',
+            method: 'get'
+          },
           login: {
-            url: '/authentication/token/validate_with_login?api_key=66cb77f48db76291e8f72ce5ebb0b72f',
+            url: '/authentication/token/validate_with_login',
             method: 'post',
             propertyName: 'request_token'
           },
           logout: {url: '/authentication/session', method: 'delete'},
           user: {url: '/account', method: 'get'}
         },
+        tokenRequired: true,
+        tokenType: 'Bearer',
+        globalToken: true,
+        autoFetchUser: true
       }
     }
   },

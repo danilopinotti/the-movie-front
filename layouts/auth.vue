@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    <vue-snotify></vue-snotify>
     <div class="bg-indigo-100 grid grid-cols-1 lg:grid-cols-2">
       <div class="bg-gray-800 lg:min-h-screen lg:flex lg:items-center p-8 sm:p-12">
         <div class="flex-grow justify-center items-center">
@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: "auth"
+  name: "auth",
 }
 </script>
 
