@@ -2,7 +2,7 @@
   <div>
     <vue-snotify></vue-snotify>
     <div class="bg-indigo-100 grid grid-cols-1 lg:grid-cols-2">
-      <div class="bg-gray-800 lg:min-h-screen lg:flex lg:items-center p-8 sm:p-12">
+      <div class="bg-blue-900 lg:min-h-screen lg:flex lg:items-center p-8 sm:p-12">
         <div class="flex-grow justify-center items-center">
           <Logo class="h-48 w-48 m-auto"></Logo>
           <h1 class="text-white text-center text-2xl sm:text-5xl mb-2">

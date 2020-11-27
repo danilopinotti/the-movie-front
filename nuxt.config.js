@@ -50,10 +50,14 @@ export default {
       common: {
         'Accept': 'application/json',
       },
+    },
+    params: {
+      't': 'a',
     }
   },
 
   auth: {
+    plugins: ['~/plugins/auth.js'],
     strategies: {
       themoviedb: {
         _scheme: '~/schemes/theMovieDb',
@@ -63,16 +67,21 @@ export default {
             url: '/authentication/token/new',
             method: 'get'
           },
-          login: {
+          validateTokenWithLogin: {
             url: '/authentication/token/validate_with_login',
             method: 'post',
             propertyName: 'request_token'
+          },
+          login: {
+            url: '/authentication/session/new',
+            method: 'post',
+            propertyName: 'session_id',
           },
           logout: {url: '/authentication/session', method: 'delete'},
           user: {url: '/account', method: 'get'}
         },
         tokenRequired: true,
-        tokenType: 'Bearer',
+        tokenType: null,
         globalToken: true,
         autoFetchUser: true
       }
