@@ -56,12 +56,15 @@ export default {
     }
   },
 
+  env: {
+    apiKey: process.env.API_KEY || 'no-key'
+  },
+
   auth: {
     plugins: ['~/plugins/auth.js'],
     strategies: {
       themoviedb: {
         _scheme: '~/schemes/theMovieDb',
-        apiKey: '...',
         endpoints: {
           requestToken: {
             url: '/authentication/token/new',

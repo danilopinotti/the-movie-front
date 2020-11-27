@@ -2,8 +2,6 @@ import LocalScheme from '@nuxtjs/auth/lib/schemes/local';
 
 export default class TheMovieDb extends LocalScheme {
   async login(endpoint) {
-    await this.$auth.setApiKey(this.options.apiKey)
-
     if (!this.options.endpoints.login) {
       return
     }
@@ -60,7 +58,7 @@ export default class TheMovieDb extends LocalScheme {
       return endpoint;
     }
 
-    return endpoint + '?api_key=' + this.$auth.getApiKey();
+    return endpoint + '?api_key=' + process.env.apiKey;
   }
 
   async _validateTokenWithLogin(payload, requestToken) {
