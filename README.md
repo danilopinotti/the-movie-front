@@ -1,20 +1,23 @@
-# the-movie-front
+# The Movie Front 
+
+This is a simple alternative front-end for [The Movie DB](https://www.themoviedb.org/) using [Nuxt.js](https://nuxtjs.org/) and [Tailwind CSS](https://tailwindcss.com/)
 
 ## Build Setup
+To build, you will need an API key. To obtains this API Key, you need to follow [this steps](https://developers.themoviedb.org/3/getting-started/introduction).
 
 ```bash
-# install dependencies
+# Install Dependencies
 $ npm install
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+# Serve with hot reload at localhost:3000
+$ API_KEY=<your_api_key> npm run dev
 
-# build for production and launch server
-$ npm run build
-$ npm run start
+# Build for production and launch server
+$ API_KEY=<your_api_key> npm run build
+$ API_KEY=<your_api_key> npm run start
 
-# generate static project
-$ npm run generate
+# Generate static project
+$ API_KEY=<your_api_key> npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
