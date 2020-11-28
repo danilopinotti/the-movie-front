@@ -50,7 +50,6 @@ export default {
     const route = this.$auth.authenticatedUrl(`/movie/${movieId}?language=pt-BR`);
 
     this.movie = await this.$axios.$get(route);
-    console.log(this.movie);
   },
 
   methods: {
