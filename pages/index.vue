@@ -7,7 +7,7 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-5 gap-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 2xl:grid-cols-5 md:gap-10">
       <MovieCard v-for="movie in discoveredMovies.results"
                  :key="movie.id"
                  :movie="movie">
