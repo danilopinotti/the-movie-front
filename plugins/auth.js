@@ -1,6 +1,11 @@
-export default function ({ $auth }) {
+export default function ({$auth}) {
   $auth.authenticatedUrl = (url) => {
-    return url + '?session_id=' + $auth.getToken('themoviedb')
-      + '&api_key=' + process.env.apiKey;
+    let [baseUrl, currentSearch] = url.split('?');
+    let searchParams = new URLSearchParams(currentSearch);
+
+    searchParams.set("api_key", process.env.apiKey);
+    searchParams.set("session_id", $auth.getToken('themoviedb'));
+
+    return baseUrl + '?' + searchParams.toString();
   }
 }

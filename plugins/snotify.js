@@ -3,8 +3,11 @@ import Snotify, { SnotifyPosition } from 'vue-snotify'
 
 const options = {
   toast: {
-    position: SnotifyPosition.rightTop
-  }
+    position: SnotifyPosition.rightTop,
+  },
+  global: {
+    oneAtTime: true,
+  },
 }
 
 Vue.use(Snotify, options)

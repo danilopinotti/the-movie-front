@@ -31,10 +31,23 @@ export default class TheMovieDb extends LocalScheme {
 
   async fetchUser(endpoint) {
     endpoint = endpoint || this.options.endpoints.user;
-    endpoint.url = this._appendsApiKey(endpoint.url)
-      + '&session_id=' + this.$auth.getToken(this.name);
+    endpoint.url = this.$auth.authenticatedUrl(endpoint.url);
 
     return super.fetchUser(endpoint);
+  }
+
+  async logout(endpoint) {
+    // Only connect to logout endpoint if it's configured
+    if (this.options.endpoints.logout) {
+      this.options.endpoints.logout.url = this.$auth.authenticatedUrl(this.options.endpoints.logout.url);
+      await this.$auth
+        .requestWith(this.name, endpoint, this.options.endpoints.logout)
+        .catch(() => {
+        })
+    }
+
+    // But reset regardless
+    return this.$auth.reset()
   }
 
   async _getRequestTokenRequest() {
